@@ -1,0 +1,20 @@
+{
+    "short_name": "Use Camera and Taking Picture",
+    "name": "React App - Use Camera and Taking Picture",
+    "icons": [
+      {
+        "src": "favicon.png",
+        "sizes": "64x64 32x32 24x24 16x16",
+        "type": "image/png"
+      },
+      {
+        "src": "logo.png",
+        "type": "image/png",
+        "sizes": "86x52"
+      }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#f85731",
+    "background_color": "#ffffff"
+  }
