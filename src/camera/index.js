@@ -125,7 +125,7 @@ export function Camera({ onCapture, onClear }) {
 
           {isVideoPlaying && (
             <Button onClick={isCanvasEmpty ? handleCapture : handleClear}>
-              {isCanvasEmpty ? "Take a picture" : "Take another picture"}
+              {isCanvasEmpty ? "Take a Picture" : "Take another picture"}
             </Button>
           )}
         </Wrapper>

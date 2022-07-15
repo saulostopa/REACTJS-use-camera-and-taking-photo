@@ -48,9 +48,12 @@ export const Overlay = styled.div`
   right: 20px;
   bottom: 20px;
   left: 20px;
-  box-shadow: 0px 0px 20px 56px rgba(0, 0, 0, 0.6);
+  box-shadow: 0px 0px 20px 56px rgba(0, 0, 0, 0.4);
   border: 1px solid #ffffff;
   border-radius: 10px;
+
+  /* width: 80%;
+  height: 80%; */
 `;
 
 export const Flash = styled.div`
@@ -72,10 +75,24 @@ export const Flash = styled.div`
 `;
 
 export const Button = styled.button`
-  width: 75%;
+  ${'' /* width: 75%;
   min-width: 100px;
   max-width: 250px;
   margin-top: 24px;
   padding: 12px 24px;
-  background: silver;
+  background: silver; */}
+
+  display: flex;
+  margin: 20px 0;
+  height: 40px;
+  padding: 0 40px;
+  align-items: center;
+  border-radius: 8px;
+  background-color: #f85731;
+  transition: background-color .3s;
+  color: #fff;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  border-style: unset;
 `;

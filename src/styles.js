@@ -30,7 +30,7 @@ export const Root = styled.main`
   text-align: center;
   overflow-x: hidden;
   overflow-y: auto;
-  padding: 50px 0 100px;
+  padding: 10px 0 100px;
 `;
 
 export const Preview = styled.img`
@@ -46,7 +46,7 @@ export const Footer = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50px;
+  height: 100px;
   background: silver;
 
   button {
