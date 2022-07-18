@@ -18,7 +18,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Container = styled.div`
-  position: relative;
+  /* position: relative; */
   width: 100%;
   max-width: ${({ maxWidth }) => maxWidth && `${maxWidth}px`};
   max-height: ${({ maxHeight }) => maxHeight && `${maxHeight}px`};
