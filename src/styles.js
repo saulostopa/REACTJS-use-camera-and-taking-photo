@@ -33,7 +33,7 @@ export const Root = styled.main`
   text-align: center;
   overflow-x: hidden;
   overflow-y: auto;
-  padding: 10px 0 100px;
+  padding: 0px 0 100px;
 `;
 
 export const Preview = styled.img`

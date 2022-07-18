@@ -15,7 +15,7 @@ function App() {
     <Fragment>
       <Root>
         <Header className="App-header"></Header>
-        <h3 style={{alignItems:'center', fontFamily:'Poppins,sans-serif', fontSize:'14px'}}>Image Overlay</h3>
+        {/* <h3 style={{alignItems:'center', fontFamily:'Poppins,sans-serif', fontSize:'14px'}}>Image Overlay</h3> */}
         {isCameraOpen && (
           <Camera
             onCapture={blob => setCardImage(blob)}
