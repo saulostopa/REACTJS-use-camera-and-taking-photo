@@ -18,7 +18,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Container = styled.div`
-  position: relative;
+  position: unset; /* relative */
   width: 100%;
   max-width: ${({ maxWidth }) => maxWidth && `${maxWidth}px`};
   max-height: ${({ maxHeight }) => maxHeight && `${maxHeight}px`};
@@ -35,6 +35,7 @@ export const Canvas = styled.canvas`
 
 export const Video = styled.video`
   position: absolute;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 
   &::-webkit-media-controls-play-button {
     display: none !important;
@@ -91,8 +92,9 @@ export const Button = styled.button`
   background-color: #f85731;
   transition: background-color .3s;
   color: #fff;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 24px;
   font-weight: 600;
   border-style: unset;
+  z-index: 1;
 `;

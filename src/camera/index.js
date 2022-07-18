@@ -93,7 +93,8 @@ export function Camera({ onCapture, onClear }) {
             maxHeight={videoRef.current && videoRef.current.videoHeight}
             maxWidth={videoRef.current && videoRef.current.videoWidth}
             style={{
-              height: `${container.height}px`
+              // height: `${container.height}px`
+              height: `90%`
             }}
           >
             <Video
@@ -104,8 +105,9 @@ export function Camera({ onCapture, onClear }) {
               playsInline
               muted
               style={{
-                top: `-${offsets.y}px`,
-                left: `-${offsets.x}px`
+                position: "relative",
+                // top: `-${offsets.y}px`,
+                // left: `-${offsets.x}px`
               }}
             />
 
