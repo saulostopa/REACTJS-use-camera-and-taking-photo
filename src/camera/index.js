@@ -98,6 +98,7 @@ export function Camera({ onCapture, onClear }) {
             }}
           >
             <Video
+              className="videoBG"
               ref={videoRef}
               hidden={!isVideoPlaying}
               onCanPlay={handleCanPlay}
@@ -105,7 +106,6 @@ export function Camera({ onCapture, onClear }) {
               playsInline
               muted
               style={{
-                position: "relative",
                 // top: `-${offsets.y}px`,
                 // left: `-${offsets.x}px`
               }}

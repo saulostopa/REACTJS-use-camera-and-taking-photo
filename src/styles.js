@@ -5,16 +5,19 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
   
-  html {
-    height: 100%;
+  html,body {
+    width:100vw;
+    height: 100vh;
+    margin: 0;
   }
+
+  /*html { height: 100%; }*/
 
   body {
     overflow-x: hidden;
     overflow-y: auto;
     height: 100%;
     padding: 32px;
-    margin: 0;
     padding: 0;
   }
 

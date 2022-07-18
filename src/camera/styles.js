@@ -34,12 +34,39 @@ export const Canvas = styled.canvas`
 `;
 
 export const Video = styled.video`
-  position: absolute;
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+  height: auto;
   padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 
   &::-webkit-media-controls-play-button {
     display: none !important;
     -webkit-appearance: none;
+  }
+
+  @media (min-aspect-ratio: 16/9) {
+    #videoBG {
+        width:100%;
+        height: auto;
+    }
+  }
+
+  @media (max-aspect-ratio: 16/9) {
+    #videoBG { 
+        width:auto;
+        height: 100%;
+    }
+  }
+
+  @media (max-width: 767px) {
+    #videoBG {
+        display: none;
+    }
+    body {
+        background: url('logo.svg');
+        background-size: cover;
+    }
   }
 `;
 
