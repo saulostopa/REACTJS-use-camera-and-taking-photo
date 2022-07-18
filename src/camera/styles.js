@@ -18,7 +18,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Container = styled.div`
-  position: unset; /* relative */
+  position: relative;
   width: 100%;
   max-width: ${({ maxWidth }) => maxWidth && `${maxWidth}px`};
   max-height: ${({ maxHeight }) => maxHeight && `${maxHeight}px`};
@@ -34,8 +34,8 @@ export const Canvas = styled.canvas`
 `;
 
 export const Video = styled.video`
-  position: absolute;
-  display: block;
+  /* position: absolute; */
+  /* display: block; */
   z-index: -1;
   width: 100%;
   height: auto;
