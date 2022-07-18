@@ -35,6 +35,7 @@ export const Canvas = styled.canvas`
 
 export const Video = styled.video`
   position: absolute;
+  display: block;
   z-index: -1;
   width: 100%;
   height: auto;
@@ -49,6 +50,7 @@ export const Video = styled.video`
     #videoBG {
         width:100%;
         height: auto;
+        display: block;
     }
   }
 
@@ -56,6 +58,7 @@ export const Video = styled.video`
     #videoBG { 
         width:auto;
         height: 100%;
+        display: block;
     }
   }
 
