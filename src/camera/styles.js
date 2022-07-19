@@ -112,19 +112,4 @@ export const Button = styled.button`
   margin-top: 24px;
   padding: 12px 24px;
   background: silver; */}
-
-  display: flex;
-  margin: 20px 0;
-  height: 40px;
-  padding: 0 40px;
-  align-items: center;
-  border-radius: 8px;
-  background-color: #f85731;
-  transition: background-color .3s;
-  color: #fff;
-  font-size: 14px;
-  line-height: 24px;
-  font-weight: 600;
-  border-style: unset;
-  z-index: 1;
 `;

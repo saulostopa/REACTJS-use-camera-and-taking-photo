@@ -32,8 +32,8 @@ function App() {
         )}
 
         <Footer>
-          <Button onClick={() => setIsCameraOpen(true)}>Open Camera</Button>
-          <Button
+          <Button className="btnFooter" onClick={() => setIsCameraOpen(true)}>Open Camera</Button>
+          <Button className="btnFooter"
             onClick={() => {
               setIsCameraOpen(false);
               setCardImage(undefined);

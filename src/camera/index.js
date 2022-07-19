@@ -97,6 +97,13 @@ export function Camera({ onCapture, onClear }) {
               // height: `90%`
             }}
           >
+
+            {isVideoPlaying && (
+              <Button className="btnTakePicture" onClick={isCanvasEmpty ? handleCapture : handleClear}>
+                {isCanvasEmpty ? "Take a Picture" : "Take another picture"}
+              </Button>
+            )}
+            
             <Video
               className="videoBG"
               ref={videoRef}
@@ -112,7 +119,7 @@ export function Camera({ onCapture, onClear }) {
             />
 
             <Overlay hidden={!isVideoPlaying} />
-
+            
             <Canvas
               ref={canvasRef}
               width={container.width}
@@ -125,11 +132,6 @@ export function Camera({ onCapture, onClear }) {
             />
           </Container>
 
-          {isVideoPlaying && (
-            <Button onClick={isCanvasEmpty ? handleCapture : handleClear}>
-              {isCanvasEmpty ? "Take a Picture" : "Take another picture"}
-            </Button>
-          )}
         </Wrapper>
       )}
     </Measure>

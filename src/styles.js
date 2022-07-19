@@ -34,6 +34,24 @@ export const Root = styled.main`
   overflow-x: hidden;
   overflow-y: auto;
   padding: 0px 0 100px;
+
+  .btnTakePicture {
+    position: absolute;
+    display: flex;
+    margin: 40px 40px;
+    height: 40px;
+    padding: 0 40px;
+    align-items: center;
+    border-radius: 8px;
+    background-color: #f85731;
+    transition: background-color .3s;
+    color: #fff;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 600;
+    border-style: unset;
+    z-index: 1;
+  }
 `;
 
 export const Preview = styled.img`
@@ -54,5 +72,22 @@ export const Footer = styled.footer`
 
   button {
     margin: 0 10px;
+  }
+
+  .btnFooter {
+    display: flex;
+    margin: 20px 5px;
+    height: 40px;
+    padding: 0 40px;
+    align-items: center;
+    border-radius: 8px;
+    background-color: #f85731;
+    transition: background-color .3s;
+    color: #fff;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 600;
+    border-style: unset;
+    z-index: 1;
   }
 `;
