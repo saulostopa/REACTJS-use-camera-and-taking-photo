@@ -115,6 +115,8 @@ export function Camera({ onCapture, onClear }) {
               style={{
                 // top: `-${offsets.y}px`,
                 // left: `-${offsets.x}px`
+                width: `${container.width}px`,
+                height: `${container.height}px`
               }}
             />
 
