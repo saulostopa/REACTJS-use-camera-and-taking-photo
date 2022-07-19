@@ -15,7 +15,10 @@ import {
 
 const CAPTURE_OPTIONS = {
   audio: false,
-  video: { facingMode: "environment" }
+  video: { 
+    facingMode: "environment",
+    width: { min: 720 },
+  }
 };
 
 export function Camera({ onCapture, onClear }) {
@@ -113,10 +116,12 @@ export function Camera({ onCapture, onClear }) {
               playsInline
               muted
               style={{
-                // top: `-${offsets.y}px`,
-                // left: `-${offsets.x}px`
+                top: `-${offsets.y}px`,
+                left: `-${offsets.x}px`,
+                // width: `828px`,
+                
                 width: `${container.width}px`,
-                height: `${container.height}px`
+                // height: `${container.height}px`
               }}
             />
 

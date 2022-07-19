@@ -39,12 +39,14 @@ export const Video = styled.video`
   z-index: -1;
   width: 100%;
   height: auto;
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  ${'' /* padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); */}
 
   &::-webkit-media-controls-play-button {
     display: none !important;
     -webkit-appearance: none;
   }
+
+  
 
   @media (min-aspect-ratio: 16/9) {
     #videoBG {

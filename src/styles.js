@@ -9,6 +9,16 @@ export const GlobalStyle = createGlobalStyle`
     width:100vw;
     height: 100vh;
     margin: 0;
+
+    @media only screen 
+      and (-webkit-min-device-pixel-ratio: 2),
+      and (orientation: portrait),
+      only screen and (min--moz-device-pixel-ratio: 2),
+      only screen and (-o-min-device-pixel-ratio: 2/1),
+      only screen and (min-device-pixel-ratio: 2)
+    {
+      
+    }
   }
 
   /*html { height: 100%; }*/
@@ -40,7 +50,7 @@ export const Root = styled.main`
     display: flex;
     margin: 40px 40px;
     height: 40px;
-    padding: 0 40px;
+    padding: 10px;
     align-items: center;
     border-radius: 8px;
     background-color: #f85731;
@@ -51,6 +61,11 @@ export const Root = styled.main`
     font-weight: 600;
     border-style: unset;
     z-index: 1;
+
+    width: -webkit-fill-available;
+    justify-content: center;
+    margin: 120px 120px 0;
+    
   }
 `;
 
