@@ -11,8 +11,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
 
     @media only screen 
-      and (-webkit-min-device-pixel-ratio: 2),
-      and (orientation: portrait),
+      and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) and (orientation: landscape),
       only screen and (min--moz-device-pixel-ratio: 2),
       only screen and (-o-min-device-pixel-ratio: 2/1),
       only screen and (min-device-pixel-ratio: 2)

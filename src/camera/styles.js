@@ -21,7 +21,7 @@ export const Container = styled.div`
   /* position: relative; */
   width: 100%;
   max-width: ${({ maxWidth }) => maxWidth && `${maxWidth}px`};
-  max-height: ${({ maxHeight }) => maxHeight && `${maxHeight}px`};
+  ${'' /* max-height: ${({ maxHeight }) => maxHeight && `${maxHeight}px`}; */}
   overflow: hidden;
 `;
 
@@ -31,6 +31,20 @@ export const Canvas = styled.canvas`
   left: 0;
   bottom: 0;
   right: 0;
+
+  ${'' /* @media (orientation: landscape) {
+    width: 856px;
+    height: 324px;
+  } */}
+
+
+
+  ${'' /* @media (orientation: portrait) {
+    width: 374px;
+    height: 675px;
+  } */}
+
+  
 `;
 
 export const Video = styled.video`
@@ -46,10 +60,9 @@ export const Video = styled.video`
     -webkit-appearance: none;
   }
 
-  
-
-  @media (min-aspect-ratio: 16/9) {
-    #videoBG {
+  /* Portrait */
+  ${'' /* @media (min-aspect-ratio: 16/9) {
+    .videoBG {
         width:100%;
         height: auto;
         display: block;
@@ -57,7 +70,7 @@ export const Video = styled.video`
   }
 
   @media (max-aspect-ratio: 16/9) {
-    #videoBG { 
+    .videoBG { 
         width:auto;
         height: 100%;
         display: block;
@@ -72,7 +85,7 @@ export const Video = styled.video`
         background: url('logo.svg');
         background-size: cover;
     }
-  }
+  } */}
 `;
 
 export const Overlay = styled.div`
