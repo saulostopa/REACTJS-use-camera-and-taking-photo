@@ -72,7 +72,7 @@ export function Camera({ onCapture, onClear }) {
       -canvasPedding,
       -canvasPedding,
       container.width,
-      container.height
+      container.height-50
     );
 
     canvasRef.current.toBlob(blob => onCapture(blob), "image/jpeg", 1);
@@ -106,7 +106,7 @@ export function Camera({ onCapture, onClear }) {
 
             {isVideoPlaying && (
               <Button className="btnTakePicture" onClick={isCanvasEmpty ? handleCapture : handleClear}>
-                {isCanvasEmpty ? "Take a picture" : "Take another picture"}
+                {isCanvasEmpty ? "Take a Picture" : "Take Another Picture"}
               </Button>
             )}
 
@@ -128,7 +128,7 @@ export function Camera({ onCapture, onClear }) {
             <Canvas
               ref={canvasRef}
               width={container.width-100}
-              height={container.height-100}
+              height={container.height-150}
               style={{
                 top:canvasPedding,
                 left:canvasPedding,

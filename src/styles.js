@@ -35,7 +35,8 @@ export const Root = styled.main`
   .btnTakePicture {
     position: absolute;
     display: flex;
-    margin: 40px 40px;
+    width: 160px;
+    margin: 60px 80px;
     height: 40px;
     padding: 10px;
     align-items: center;
@@ -48,8 +49,8 @@ export const Root = styled.main`
     font-weight: 600;
     border-style: unset;
     z-index: 1;
-    width: -webkit-fill-available;
     justify-content: center;
+  }
 `;
 
 export const Preview = styled.img`
@@ -58,17 +59,36 @@ export const Preview = styled.img`
 `;
 
 export const Footer = styled.footer`
-  position: fixed;
+  position: absolute;
+  top: 11px;
   right: 0;
   bottom: 0;
   left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50px;
+  height: 140px;
   ${'' /* background: silver; */}
 
   button {
     margin: 0 10px;
+  }
+
+  .btnFooter {
+    width: 180px;
+    margin: 10px 10px;
+    display: flex;
+    height: 40px;
+    padding: 0 40px;
+    align-items: center;
+    border-radius: 8px;
+    background-color: #f85731;
+    transition: background-color .3s;
+    color: #fff;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 600;
+    border-style: unset;
+    z-index: 1;
   }
 `;
