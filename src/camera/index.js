@@ -32,7 +32,7 @@ export function Camera({ onCapture, onClear }) {
   const [isFlashing, setIsFlashing] = useState(false);
   const [minWidth, setMinWidth] = useState(false);
   const [minHeight, setMinHeight] = useState(false);
-  const [minHeightCanvas, setMinHeightCanvas] = useState(false);
+  // const [minHeightCanvas, setMinHeightCanvas] = useState(false);
   const [isPortrait, setIsPortrait] = useState(false);
   const canvasPedding = 20;
 
@@ -64,7 +64,7 @@ export function Camera({ onCapture, onClear }) {
       videoRef.current.style.width = "665px"; // 896px
       videoRef.current.style.height = "auto";
       setMinWidth(665);
-      setMinHeightCanvas(364);
+      // setMinHeightCanvas(364);
       setMinHeight(414);
     }
   }
