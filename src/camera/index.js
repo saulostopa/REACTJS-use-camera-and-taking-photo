@@ -28,13 +28,13 @@ export function Camera({ onCapture, onClear }) {
   const canvasRef = useRef();
   const videoRef = useRef();
 
-  const [container, setContainer] = useState({ width: 0, height: 0 });
+  const [container, setContainer] = useState({ width: 0, height: 0});
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [isCanvasEmpty, setIsCanvasEmpty] = useState(true);
   const [isFlashing, setIsFlashing] = useState(false);
   const canvasPedding = 50;
 
-  const mediaStream = useUserMedia(CAPTURE_OPTIONS);
+const mediaStream = useUserMedia(CAPTURE_OPTIONS);
   const [aspectRatio, calculateRatio] = useCardRatio(1.586);
   const offsets = useOffsets(
     videoRef.current && videoRef.current.videoWidth,
@@ -47,7 +47,34 @@ export function Camera({ onCapture, onClear }) {
     videoRef.current.srcObject = mediaStream;
   }
 
+  function setupVideoCanvas(orientation) {
+    if ( orientation === "portrait" ) {
+      videoRef.current.style.width = "414px";
+      videoRef.current.style.height = "auto";
+      setMinWidth(414);
+      setMinHeight(715);
+      setIsPortrait(true);
+    }
+
+    if ( orientation === "landscape" ) {
+      videoRef.current.style.width = "665px"; // 896px
+      videoRef.current.style.height = "auto";
+      setMinWidth(665);
+      // setMinHeightCanvas(364);
+      setMinHeight(414);
+    }
+  }
+
   function handleResize(contentRect) {
+
+    if (window.matchMedia("(orientation: portrait)").matches) {
+      setupVideoCanvas('portrait');
+    }
+    
+    if (window.matchMedia("(orientation: landscape)").matches) {
+      setupVideoCanvas('landscape');
+    }
+
     setContainer({
       width: contentRect.bounds.width,
       height: Math.round(contentRect.bounds.width / aspectRatio)
@@ -60,9 +87,15 @@ export function Camera({ onCapture, onClear }) {
     videoRef.current.play();
   }
 
+  let video = document.querySelector(".videoBG");
+  let canvas = document.querySelector(".canvas");
+  
+
+  console.log('canvas', canvas);
+  
+
   function handleCapture() {
     const context = canvasRef.current.getContext("2d");
-
     context.drawImage(
       videoRef.current,
       offsets.x,
@@ -97,10 +130,13 @@ export function Camera({ onCapture, onClear }) {
         <Wrapper>
           <Container
             ref={measureRef}
-            maxHeight={videoRef.current && videoRef.current.videoHeight}
             maxWidth={videoRef.current && videoRef.current.videoWidth}
+            // maxWidth={720}
+            // maxHeight={videoRef.current && videoRef.current.videoHeight}
+            
             style={{
-              height: `${container.height}px`
+              // height: `${container.height}px`
+              // height: `90%`
             }}
           >
 
@@ -109,23 +145,33 @@ export function Camera({ onCapture, onClear }) {
                 {isCanvasEmpty ? "Take a Picture" : "Take Another Picture"}
               </Button>
             )}
-
             <Video
+              className="videoBG"
               ref={videoRef}
               hidden={!isVideoPlaying}
               onCanPlay={handleCanPlay}
               autoPlay
               playsInline
               muted
+              width={minWidth-40}
+              height={minHeight-40}
               style={{
                 top: `-${offsets.y}px`,
-                left: `-${offsets.x}px`
+                left: `-${offsets.x}px`,
+                width: `${minWidth}px`,
+                height: `${minHeight}px`
+                // width: `${container.width}px`,
+                // minWidth: `${roteteW}px`,
+                // minHeight: `${roteteH}px`,
+                // width: `${container.width}px`,
+                // height: `${container.height}px`
               }}
             />
 
-            <Overlay hidden={!isVideoPlaying} />
-
+            <Overlay className="overlay" hidden={!isVideoPlaying} />
+            
             <Canvas
+              className="canvas"
               ref={canvasRef}
               width={container.width-100}
               height={container.height-150}
@@ -140,8 +186,6 @@ export function Camera({ onCapture, onClear }) {
               onAnimationEnd={() => setIsFlashing(false)}
             />
           </Container>
-
-          
         </Wrapper>
       )}
     </Measure>

@@ -18,10 +18,10 @@ export const Wrapper = styled.div`
 `;
 
 export const Container = styled.div`
-  position: relative;
+  /* position: relative; */
   width: 100%;
   max-width: ${({ maxWidth }) => maxWidth && `${maxWidth}px`};
-  max-height: ${({ maxHeight }) => maxHeight && `${maxHeight}px`};
+  ${'' /* max-height: ${({ maxHeight }) => maxHeight && `${maxHeight}px`}; */}
   overflow: hidden;
 `;
 
@@ -31,15 +31,55 @@ export const Canvas = styled.canvas`
   left: 0;
   bottom: 0;
   right: 0;
+
+  ${'' /* @media (orientation: landscape) {
+    width: 856px;
+    height: 324px;
+  } */}
+
+
+
+  ${'' /* @media (orientation: portrait) {
+    width: 374px;
+    height: 675px;
+  } */}
+
+  
 `;
 
 export const Video = styled.video`
   position: unset;
-
   &::-webkit-media-controls-play-button {
     display: none !important;
     -webkit-appearance: none;
   }
+
+  /* Portrait */
+  ${'' /* @media (min-aspect-ratio: 16/9) {
+    .videoBG {
+        width:100%;
+        height: auto;
+        display: block;
+    }
+  }
+
+  @media (max-aspect-ratio: 16/9) {
+    .videoBG { 
+        width:auto;
+        height: 100%;
+        display: block;
+    }
+  }
+
+  @media (max-width: 767px) {
+    #videoBG {
+        display: none;
+    }
+    body {
+        background: url('logo.svg');
+        background-size: cover;
+    }
+  } */}
 `;
 
 export const Overlay = styled.div`
@@ -51,6 +91,9 @@ export const Overlay = styled.div`
   box-shadow: 0px 0px 20px 56px rgba(0, 0, 0, 0.6);
   border: 1px solid #ffffff;
   border-radius: 10px;
+
+  /* width: 80%;
+  height: 80%; */
 `;
 
 export const Flash = styled.div`
@@ -72,7 +115,7 @@ export const Flash = styled.div`
 `;
 
 export const Button = styled.button`
-  width: 75%;
+  ${'' /* width: 75%;
   min-width: 100px;
   max-width: 250px;
   margin-top: 24px;

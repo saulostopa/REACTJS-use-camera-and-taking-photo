@@ -5,16 +5,28 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
   
-  html {
-    height: 100%;
+  html,body {
+    width:100vw;
+    height: 100vh;
+    margin: 0;
+
+    @media only screen 
+      and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) and (orientation: landscape),
+      only screen and (min--moz-device-pixel-ratio: 2),
+      only screen and (-o-min-device-pixel-ratio: 2/1),
+      only screen and (min-device-pixel-ratio: 2)
+    {
+      
+    }
   }
+
+  /*html { height: 100%; }*/
 
   body {
     overflow-x: hidden;
     overflow-y: auto;
     height: 100%;
     padding: 32px;
-    margin: 0;
     padding: 0;
   }
 
@@ -31,7 +43,7 @@ export const Root = styled.main`
   overflow-x: hidden;
   overflow-y: auto;
   padding: 0px;
-
+  
   .btnTakePicture {
     position: absolute;
     display: flex;
