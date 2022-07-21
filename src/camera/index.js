@@ -15,7 +15,13 @@ import {
 
 const CAPTURE_OPTIONS = {
   audio: false,
-  video: { facingMode: "environment" }
+  video: { 
+    facingMode: "environment",
+    width: { min: 896 },
+    // width: { min: 812, ideal: 812, max: 812 },
+    // width: { min: 812, ideal: 1280 },
+    // height: { min: 720, idal: 720, max: 720 }
+  }
 };
 
 export function Camera({ onCapture, onClear }) {
@@ -26,6 +32,7 @@ export function Camera({ onCapture, onClear }) {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [isCanvasEmpty, setIsCanvasEmpty] = useState(true);
   const [isFlashing, setIsFlashing] = useState(false);
+  const canvasPedding = 50;
 
   const mediaStream = useUserMedia(CAPTURE_OPTIONS);
   const [aspectRatio, calculateRatio] = useCardRatio(1.586);
@@ -62,8 +69,8 @@ export function Camera({ onCapture, onClear }) {
       offsets.y,
       container.width,
       container.height,
-      0,
-      0,
+      -canvasPedding,
+      -canvasPedding,
       container.width,
       container.height
     );
@@ -96,6 +103,13 @@ export function Camera({ onCapture, onClear }) {
               height: `${container.height}px`
             }}
           >
+
+            {isVideoPlaying && (
+              <Button className="btnTakePicture" onClick={isCanvasEmpty ? handleCapture : handleClear}>
+                {isCanvasEmpty ? "Take a picture" : "Take another picture"}
+              </Button>
+            )}
+
             <Video
               ref={videoRef}
               hidden={!isVideoPlaying}
@@ -113,8 +127,12 @@ export function Camera({ onCapture, onClear }) {
 
             <Canvas
               ref={canvasRef}
-              width={container.width}
-              height={container.height}
+              width={container.width-100}
+              height={container.height-100}
+              style={{
+                top:canvasPedding,
+                left:canvasPedding,
+              }}
             />
 
             <Flash
@@ -123,11 +141,7 @@ export function Camera({ onCapture, onClear }) {
             />
           </Container>
 
-          {isVideoPlaying && (
-            <Button onClick={isCanvasEmpty ? handleCapture : handleClear}>
-              {isCanvasEmpty ? "Take a picture" : "Take another picture"}
-            </Button>
-          )}
+          
         </Wrapper>
       )}
     </Measure>

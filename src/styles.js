@@ -30,7 +30,26 @@ export const Root = styled.main`
   text-align: center;
   overflow-x: hidden;
   overflow-y: auto;
-  padding: 50px 0 100px;
+  padding: 0px;
+
+  .btnTakePicture {
+    position: absolute;
+    display: flex;
+    margin: 40px 40px;
+    height: 40px;
+    padding: 10px;
+    align-items: center;
+    border-radius: 8px;
+    background-color: #f85731;
+    transition: background-color .3s;
+    color: #fff;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 600;
+    border-style: unset;
+    z-index: 1;
+    width: -webkit-fill-available;
+    justify-content: center;
 `;
 
 export const Preview = styled.img`
@@ -47,7 +66,7 @@ export const Footer = styled.footer`
   justify-content: center;
   align-items: center;
   height: 50px;
-  background: silver;
+  ${'' /* background: silver; */}
 
   button {
     margin: 0 10px;
