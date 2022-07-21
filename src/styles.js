@@ -42,12 +42,13 @@ export const Root = styled.main`
   text-align: center;
   overflow-x: hidden;
   overflow-y: auto;
-  padding: 0px 0 100px;
-
+  padding: 0px;
+  
   .btnTakePicture {
     position: absolute;
     display: flex;
-    margin: 40px 40px;
+    width: 160px;
+    margin: 60px 80px;
     height: 40px;
     padding: 10px;
     align-items: center;
@@ -60,11 +61,7 @@ export const Root = styled.main`
     font-weight: 600;
     border-style: unset;
     z-index: 1;
-
-    width: -webkit-fill-available;
     justify-content: center;
-    margin: 120px 120px 0;
-    
   }
 `;
 
@@ -74,23 +71,25 @@ export const Preview = styled.img`
 `;
 
 export const Footer = styled.footer`
-  position: fixed;
+  position: absolute;
+  top: 11px;
   right: 0;
   bottom: 0;
   left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100px;
-  background: none; /* silver */
+  height: 140px;
+  ${'' /* background: silver; */}
 
   button {
     margin: 0 10px;
   }
 
   .btnFooter {
+    width: 180px;
+    margin: 10px 10px;
     display: flex;
-    margin: 20px 5px;
     height: 40px;
     padding: 0 40px;
     align-items: center;

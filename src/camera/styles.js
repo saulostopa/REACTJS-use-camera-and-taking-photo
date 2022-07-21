@@ -48,13 +48,7 @@ export const Canvas = styled.canvas`
 `;
 
 export const Video = styled.video`
-  /* position: absolute; */
-  /* display: block; */
-  z-index: -1;
-  width: 100%;
-  height: auto;
-  ${'' /* padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); */}
-
+  position: unset;
   &::-webkit-media-controls-play-button {
     display: none !important;
     -webkit-appearance: none;
@@ -90,11 +84,11 @@ export const Video = styled.video`
 
 export const Overlay = styled.div`
   position: absolute;
-  top: 20px;
-  right: 20px;
-  bottom: 20px;
-  left: 20px;
-  box-shadow: 0px 0px 20px 56px rgba(0, 0, 0, 0.4);
+  top: 50px;
+  right: 50px;
+  bottom: 150px;
+  left: 50px;
+  box-shadow: 0px 0px 20px 56px rgba(0, 0, 0, 0.6);
   border: 1px solid #ffffff;
   border-radius: 10px;
 
@@ -126,5 +120,5 @@ export const Button = styled.button`
   max-width: 250px;
   margin-top: 24px;
   padding: 12px 24px;
-  background: silver; */}
+  ${'' /* background: silver; */}
 `;

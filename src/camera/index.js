@@ -16,9 +16,11 @@ import {
 const CAPTURE_OPTIONS = {
   audio: false,
   video: { 
-    facingMode: "user",
-    width: { min: 1280 },
-    height: { min: 720 }
+    facingMode: "environment",
+    width: { min: 896 },
+    // width: { min: 812, ideal: 812, max: 812 },
+    // width: { min: 812, ideal: 1280 },
+    // height: { min: 720, idal: 720, max: 720 }
   }
 };
 
@@ -30,15 +32,9 @@ export function Camera({ onCapture, onClear }) {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [isCanvasEmpty, setIsCanvasEmpty] = useState(true);
   const [isFlashing, setIsFlashing] = useState(false);
-  const [minWidth, setMinWidth] = useState(false);
-  const [minHeight, setMinHeight] = useState(false);
-  // const [minHeightCanvas, setMinHeightCanvas] = useState(false);
-  const [isPortrait, setIsPortrait] = useState(false);
-  const canvasPedding = 20;
+  const canvasPedding = 50;
 
-  console.log("minHeight", minHeight);
-
-  const mediaStream = useUserMedia(CAPTURE_OPTIONS);
+const mediaStream = useUserMedia(CAPTURE_OPTIONS);
   const [aspectRatio, calculateRatio] = useCardRatio(1.586);
   const offsets = useOffsets(
     videoRef.current && videoRef.current.videoWidth,
@@ -100,17 +96,17 @@ export function Camera({ onCapture, onClear }) {
 
   function handleCapture() {
     const context = canvasRef.current.getContext("2d");
-    if ( isPortrait ) {
-      console.log('portrait');
-      context.drawImage(
-        video, -canvasPedding, -canvasPedding, canvas.width+canvasPedding, canvas.height+canvasPedding
-      );
-    } else {
-      const adjustProportionally = 221;
-      context.drawImage(
-        video, -canvasPedding, -canvasPedding, canvas.width-adjustProportionally, canvas.height+canvasPedding
-      );
-    }
+    context.drawImage(
+      videoRef.current,
+      offsets.x,
+      offsets.y,
+      container.width,
+      container.height,
+      -canvasPedding,
+      -canvasPedding,
+      container.width,
+      container.height-50
+    );
 
     canvasRef.current.toBlob(blob => onCapture(blob), "image/jpeg", 1);
     setIsCanvasEmpty(false);
@@ -146,10 +142,9 @@ export function Camera({ onCapture, onClear }) {
 
             {isVideoPlaying && (
               <Button className="btnTakePicture" onClick={isCanvasEmpty ? handleCapture : handleClear}>
-                {isCanvasEmpty ? "Take a Picture" : "Take another picture"}
+                {isCanvasEmpty ? "Take a Picture" : "Take Another Picture"}
               </Button>
             )}
-            
             <Video
               className="videoBG"
               ref={videoRef}
@@ -178,19 +173,11 @@ export function Camera({ onCapture, onClear }) {
             <Canvas
               className="canvas"
               ref={canvasRef}
-              // width={`${container.width-40}`} /* 414-40 (paddings canvas) = 374 */
-              // width={374} /* 414-40 (paddings canvas) = 374 */
-              // height={videoRef.current.videoHeight-40} /* 720-40 (paddings canvas) = 660 */
-              // height={minHeight}
-
-              width={minWidth-40}
-              height={minHeight-40}
+              width={container.width-100}
+              height={container.height-150}
               style={{
-                // position: 'fixed',
                 top:canvasPedding,
                 left:canvasPedding,
-                // minWidth: `${minWidth}px`,
-                // minHeight: `${minHeight}px`,
               }}
             />
 
