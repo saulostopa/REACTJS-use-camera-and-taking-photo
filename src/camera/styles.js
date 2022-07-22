@@ -34,7 +34,8 @@ export const Canvas = styled.canvas`
 `;
 
 export const Video = styled.video`
-  position: unset;
+  position: absolute;
+  z-index: -1;
 
   &::-webkit-media-controls-play-button {
     display: none !important;
