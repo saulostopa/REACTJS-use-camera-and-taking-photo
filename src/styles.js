@@ -51,6 +51,26 @@ export const Root = styled.main`
     z-index: 1;
     justify-content: center;
   }
+
+  .btnUploadPicture {
+    position: absolute;
+    display: flex;
+    width: 170px;
+    margin: 210px 60px;
+    height: 40px;
+    padding: 10px;
+    align-items: center;
+    border-radius: 8px;
+    background-color: #f85731;
+    transition: background-color .3s;
+    color: #fff;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 600;
+    border-style: unset;
+    z-index: 1;
+    justify-content: center;
+  }
 `;
 
 export const Preview = styled.img`

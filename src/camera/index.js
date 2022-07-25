@@ -32,6 +32,7 @@ export function Camera({ onCapture, onClear }) {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [isCanvasEmpty, setIsCanvasEmpty] = useState(true);
   const [isFlashing, setIsFlashing] = useState(false);
+  const [isTakedPicture, setIsTakedPicture] = useState(false);
   
   const canvasPedding = 50;
 
@@ -79,6 +80,7 @@ export function Camera({ onCapture, onClear }) {
     canvasRef.current.toBlob(blob => onCapture(blob), "image/jpeg", 1);
     setIsCanvasEmpty(false);
     setIsFlashing(true);
+    setIsTakedPicture(true);
   }
 
   function handleClear() {
@@ -109,6 +111,10 @@ export function Camera({ onCapture, onClear }) {
               <Button className="btnTakePicture" onClick={isCanvasEmpty ? handleCapture : handleClear}>
                 {isCanvasEmpty ? "Take a Picture" : "Take Another Picture"}
               </Button>
+            )}
+
+            {isTakedPicture && (
+              <Button className="btnUploadPicture">Upload Picture</Button>
             )}
 
             <Video
