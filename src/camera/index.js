@@ -32,6 +32,7 @@ export function Camera({ onCapture, onClear }) {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [isCanvasEmpty, setIsCanvasEmpty] = useState(true);
   const [isFlashing, setIsFlashing] = useState(false);
+  
   const canvasPedding = 50;
 
   const mediaStream = useUserMedia(CAPTURE_OPTIONS);
@@ -72,7 +73,7 @@ export function Camera({ onCapture, onClear }) {
       -canvasPedding,
       -canvasPedding,
       container.width,
-      container.height-50
+      container.height
     );
 
     canvasRef.current.toBlob(blob => onCapture(blob), "image/jpeg", 1);
@@ -127,11 +128,16 @@ export function Camera({ onCapture, onClear }) {
 
             <Canvas
               ref={canvasRef}
-              width={container.width-100}
-              height={container.height-150}
+              width={container.width-104}
+              height={container.height-200}
               style={{
                 top:canvasPedding,
                 left:canvasPedding,
+                borderRadius: "10px",
+                // backgroundColor: "rgba(0,0,0,0.5)",
+                border: "2px solid #fff"
+                // width: 796px;
+                // height: 304px;
               }}
             />
 

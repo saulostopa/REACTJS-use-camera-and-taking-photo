@@ -47,10 +47,10 @@ export const Overlay = styled.div`
   position: absolute;
   top: 50px;
   right: 50px;
-  bottom: 150px;
+  bottom: 146px;
   left: 50px;
   box-shadow: 0px 0px 20px 56px rgba(0, 0, 0, 0.6);
-  border: 1px solid #ffffff;
+  border: 2px solid #ffffff;
   border-radius: 10px;
 `;
 

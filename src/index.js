@@ -18,8 +18,7 @@ function App() {
         )}
 
         {cardImage && (
-          <div>
-            <h2>Preview</h2>
+          <div className="preview" style={{display: 'none'}}>
             <Preview src={cardImage && URL.createObjectURL(cardImage)} />
           </div>
         )}
