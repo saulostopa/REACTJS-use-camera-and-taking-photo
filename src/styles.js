@@ -32,26 +32,6 @@ export const Root = styled.main`
   overflow-y: auto;
   padding: 0px;
 
-  .btnTakePicture {
-    position: absolute;
-    display: flex;
-    width: 170px;
-    margin: 160px 60px;
-    height: 40px;
-    padding: 10px;
-    align-items: center;
-    border-radius: 8px;
-    background-color: #f85731;
-    transition: background-color .3s;
-    color: #fff;
-    font-size: 14px;
-    line-height: 24px;
-    font-weight: 600;
-    border-style: unset;
-    z-index: 1;
-    justify-content: center;
-  }
-
   .btnUploadPicture {
     position: absolute;
     display: flex;
@@ -80,7 +60,7 @@ export const Preview = styled.img`
 
 export const Footer = styled.footer`
   position: absolute;
-  top: 50px;
+  top: 10px;
   right: 0;
   bottom: 0;
   left: 0;

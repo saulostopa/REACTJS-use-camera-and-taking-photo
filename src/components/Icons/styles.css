@@ -1,0 +1,19 @@
+.btnCamera {
+  border-radius: 50%;
+  background-color: rgb(70, 70, 70);
+  padding: 10px;
+  color: #fff;
+  font-size: 20px;
+}
+
+.btnTakePicture {
+  padding: 10px;
+  color: transparent;
+  font-size: 40px;
+  border: 6px solid white;
+  border-radius: 50%;
+}
+
+.btnRetakePicture {
+  color: #fff;
+}

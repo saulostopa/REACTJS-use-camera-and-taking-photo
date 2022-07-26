@@ -31,6 +31,9 @@ export const Canvas = styled.canvas`
   left: 0;
   bottom: 0;
   right: 0;
+  box-shadow: 0px 0px 20px 56px rgba(0, 0, 0, 0.1); */}
+  border: 2px solid #ffffff;
+  border-radius: 10px;
 `;
 
 export const Video = styled.video`
@@ -46,12 +49,12 @@ export const Video = styled.video`
 export const Overlay = styled.div`
   position: absolute;
   top: 50px;
-  right: 50px;
+  right: 75px;
   bottom: 146px;
-  left: 50px;
-  box-shadow: 0px 0px 20px 56px rgba(0, 0, 0, 0.6);
-  border: 2px solid #ffffff;
-  border-radius: 10px;
+  left: 75px;
+  ${'' /* box-shadow: 0px 0px 20px 56px rgba(0, 0, 0, 0.1); */}
+  ${'' /* border: 2px solid #ffffff; */}
+  ${'' /* border-radius: 10px; */}
 `;
 
 export const Flash = styled.div`

@@ -9,9 +9,12 @@ import {
   Wrapper,
   Container,
   Flash,
-  Overlay,
-  Button
+  Overlay
 } from "./styles";
+import { IconUploadPicture } from "./../components/Icons/IconUploadPicture";
+import { IconTakePicture } from "./../components/Icons/IconTakePicture";
+import { IconRetakePicture } from "./../components/Icons/IconRetakePicture";
+
 
 const CAPTURE_OPTIONS = {
   audio: false,
@@ -71,8 +74,8 @@ export function Camera({ onCapture, onClear }) {
       offsets.y,
       container.width,
       container.height,
-      -canvasPedding,
-      -canvasPedding,
+      -canvasPedding-27,
+      -canvasPedding-2,
       container.width,
       container.height
     );
@@ -108,13 +111,32 @@ export function Camera({ onCapture, onClear }) {
           >
 
             {isVideoPlaying && (
-              <Button className="btnTakePicture" onClick={isCanvasEmpty ? handleCapture : handleClear}>
-                {isCanvasEmpty ? "Take a Picture" : "Take Another Picture"}
-              </Button>
+              <button className="btnTakePicture_" style={{
+                position: 'absolute',
+                left: '0',
+                right: '0',
+                marginLeft: 'auto',
+                marginRight: 'auto',
+                marginTop: '30%',
+                borderStyle: 'unset',
+                backgroundColor: 'transparent',
+                zIndex: '1',
+              }} 
+                onClick={isCanvasEmpty ? handleCapture : handleClear}>
+                {isCanvasEmpty ? <IconTakePicture /> : <IconRetakePicture />}
+              </button>
             )}
 
             {isTakedPicture && (
-              <Button className="btnUploadPicture">Upload Picture</Button>
+              <button className="IconUploadPicture" style={{
+                margin: '0px 15px',
+                top: '120px',
+                position: 'absolute',
+                display: 'block',
+                borderStyle: 'unset',
+                backgroundColor: 'transparent',
+                zIndex: '1',
+              }} onClick={isCanvasEmpty ? handleCapture : handleClear}><IconUploadPicture /></button>
             )}
 
             <Video
@@ -130,15 +152,15 @@ export function Camera({ onCapture, onClear }) {
               }}
             />
 
-            <Overlay hidden={!isVideoPlaying} />
+            {/* <Overlay hidden={!isVideoPlaying} /> */}
 
             <Canvas
               ref={canvasRef}
-              width={container.width-104}
+              width={container.width-154}
               height={container.height-200}
               style={{
                 top:canvasPedding,
-                left:canvasPedding,
+                left:canvasPedding+25,
                 borderRadius: "10px",
                 // backgroundColor: "rgba(0,0,0,0.5)",
                 border: "2px solid #fff"
