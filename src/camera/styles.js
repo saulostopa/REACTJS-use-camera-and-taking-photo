@@ -37,7 +37,7 @@ export const Canvas = styled.canvas`
   ${'' /* border: 2px solid #ffffff; */}
   border-radius: 10px;
 
-  opacity: 0.6;
+  opacity: 0.2;
   background-image: url('${truck_ford}');
   ${'' /* background: url("./assets/images/truck.png") no-repeat center center; */}
   background-repeat: no-repeat;
