@@ -1,6 +1,7 @@
 import styled, { keyframes, css } from "styled-components";
 // import truck from "./../assets/images/truck.png";
-import truck_ford from "./../assets/images/truck_ford.png";
+// import truck_ford from "./../assets/images/truck_ford.png";
+import truck2 from "./../assets/images/truck2.png";
 
 const flashAnimation = keyframes`
   from {
@@ -38,7 +39,7 @@ export const Canvas = styled.canvas`
   border-radius: 10px;
 
   opacity: 0.2;
-  background-image: url('${truck_ford}');
+  background-image: url('${truck2}');
   ${'' /* background: url("./assets/images/truck.png") no-repeat center center; */}
   background-repeat: no-repeat;
   background-position: 50% 0;

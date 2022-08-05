@@ -156,11 +156,15 @@ export function Camera({ onCapture, onClear }) {
 
             <Canvas
               ref={canvasRef}
-              width={container.width-154}
-              height={container.height-200}
+              // width={container.width-154}
+              width={container.width}
+              height={container.height}
+              // height={container.height-200}
               style={{
-                top:canvasPedding,
-                left:canvasPedding+25,
+                // top:canvasPedding,
+                top:0,
+                // left:canvasPedding+25,
+                left:0,
                 borderRadius: "10px",
                 // backgroundColor: "rgba(0,0,0,0.5)",
                 // border: "2px solid #fff"
