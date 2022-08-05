@@ -163,7 +163,7 @@ export function Camera({ onCapture, onClear }) {
                 left:canvasPedding+25,
                 borderRadius: "10px",
                 // backgroundColor: "rgba(0,0,0,0.5)",
-                border: "2px solid #fff"
+                // border: "2px solid #fff"
                 // width: 796px;
                 // height: 304px;
               }}

@@ -1,4 +1,6 @@
 import styled, { keyframes, css } from "styled-components";
+// import truck from "./../assets/images/truck.png";
+import truck_ford from "./../assets/images/truck_ford.png";
 
 const flashAnimation = keyframes`
   from {
@@ -31,9 +33,16 @@ export const Canvas = styled.canvas`
   left: 0;
   bottom: 0;
   right: 0;
-  box-shadow: 0px 0px 20px 56px rgba(0, 0, 0, 0.1); */}
-  border: 2px solid #ffffff;
+  ${'' /* box-shadow: 0px 0px 20px 56px rgba(0, 0, 0, 0.1); */} */}
+  ${'' /* border: 2px solid #ffffff; */}
   border-radius: 10px;
+
+  opacity: 0.6;
+  background-image: url('${truck_ford}');
+  ${'' /* background: url("./assets/images/truck.png") no-repeat center center; */}
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
 `;
 
 export const Video = styled.video`
