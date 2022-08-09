@@ -152,17 +152,20 @@ export function Camera({ onCapture, onClear }) {
               }}
             />
 
-            {/* <Overlay hidden={!isVideoPlaying} /> */}
+            <Overlay hidden={!isVideoPlaying} 
+              // style={{opacity:0.2}} 
+            />
 
             <Canvas
               ref={canvasRef}
               // width={container.width-154}
+              // height={container.height-200}
               width={container.width}
               height={container.height}
-              // height={container.height-200}
               style={{
                 // top:canvasPedding,
                 top:0,
+                opacity:0.2,
                 // left:canvasPedding+25,
                 left:0,
                 borderRadius: "10px",
