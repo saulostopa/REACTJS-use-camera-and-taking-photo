@@ -129,7 +129,7 @@ export function Camera({ onCapture, onClear }) {
                 right: '0',
                 marginLeft: '80px',
                 marginRight: 'auto',
-                marginTop: '350px',
+                marginTop: '290px',
                 borderStyle: 'unset',
                 backgroundColor: 'transparent',
                 zIndex: '1',
@@ -144,7 +144,7 @@ export function Camera({ onCapture, onClear }) {
                 right: '0',
                 marginLeft: '400px',
                 marginRight: 'auto',
-                marginTop: '358px',
+                marginTop: '298px',
                 borderStyle: 'unset',
                 backgroundColor: 'transparent',
                 zIndex: '1',
@@ -158,7 +158,7 @@ export function Camera({ onCapture, onClear }) {
             {isTakedPicture && (
               <button className="btnUploadImg" style={{
                 "position": "absolute",
-                "marginTop": "358px",
+                "marginTop": "298px",
                 "borderStyle": "unset",
                 "backgroundColor": "transparent",
                 "zIndex": "1",
@@ -209,7 +209,7 @@ export function Camera({ onCapture, onClear }) {
               height={container.height}
               style={{
                 backgroundImage: `url("${bgOverlay}")`,
-                backgroundPositionY: '-20px',
+                backgroundPositionY: '-35px',
                 // top:canvasPedding,
                 top:0,
                 opacity:0.2,
