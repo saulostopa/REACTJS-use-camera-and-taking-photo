@@ -7,13 +7,15 @@
 }
 
 .btnTakePicture {
-  padding: 10px;
   color: transparent;
-  font-size: 40px;
+  font-size: 60px;
   border: 6px solid white;
   border-radius: 50%;
 }
 
 .btnRetakePicture {
   color: #fff;
+  font-size: 60px;
+  border: 6px solid white;
+  border-radius: 50%;
 }

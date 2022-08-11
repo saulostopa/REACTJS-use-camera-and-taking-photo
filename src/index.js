@@ -8,7 +8,7 @@ import { Root, Preview, Footer, GlobalStyle } from "./styles";
 function App() {
   const [isCameraOpen, setIsCameraOpen] = useState(false);
   const [cardImage, setCardImage] = useState();
-
+  
   return (
     <React.StrictMode>
     <Fragment>
@@ -20,13 +20,19 @@ function App() {
           />
         )}
 
-        {cardImage && (
-          <div className="preview" style={{display: 'none'}}>
+        {console.log(cardImage)}
+
+        
+          <div className="preview" id="preview"
+            style={{position: 'absolute', top: '0', left: '0', right: '0', bottom: '0', overflow: 'scroll'}}>
+            {cardImage && (
             <Preview src={cardImage && URL.createObjectURL(cardImage)} />
+            )}
           </div>
-        )}
+        
 
         <Footer>
+          {/* <button onClick={scrollToElement}>Trigger the scroll</button> */}
           <button className="iconOpenCamera" style={{
             margin: '0px 15px',
             top: '10px',

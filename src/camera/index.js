@@ -14,7 +14,9 @@ import {
 import { IconUploadPicture } from "./../components/Icons/IconUploadPicture";
 import { IconTakePicture } from "./../components/Icons/IconTakePicture";
 import { IconRetakePicture } from "./../components/Icons/IconRetakePicture";
-
+import { IconInstructions } from "./../components/Icons/IconInstructions";
+import bgSideOverlay from "./../assets/images/truck_left_side.png";
+import bgFrontOverlay from "./../assets/images/truck_front.png";
 
 const CAPTURE_OPTIONS = {
   audio: false,
@@ -30,14 +32,17 @@ const CAPTURE_OPTIONS = {
 export function Camera({ onCapture, onClear }) {
   const canvasRef = useRef();
   const videoRef = useRef();
+  // const bgOverlay = bgSideOverlay;
+  
 
   const [container, setContainer] = useState({ width: 0, height: 0 });
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [isCanvasEmpty, setIsCanvasEmpty] = useState(true);
   const [isFlashing, setIsFlashing] = useState(false);
   const [isTakedPicture, setIsTakedPicture] = useState(false);
+  const [bgOverlay, setBgOverlay] = useState(false);
   
-  const canvasPedding = 50;
+  const canvasPedding = 0;
 
   const mediaStream = useUserMedia(CAPTURE_OPTIONS);
   const [aspectRatio, calculateRatio] = useCardRatio(1.586);
@@ -62,6 +67,7 @@ export function Camera({ onCapture, onClear }) {
   function handleCanPlay() {
     calculateRatio(videoRef.current.videoHeight, videoRef.current.videoWidth);
     setIsVideoPlaying(true);
+    setBgOverlay(bgSideOverlay)
     videoRef.current.play();
   }
 
@@ -74,8 +80,8 @@ export function Camera({ onCapture, onClear }) {
       offsets.y,
       container.width,
       container.height,
-      -canvasPedding-27,
-      -canvasPedding-2,
+      -canvasPedding,
+      -canvasPedding,
       container.width,
       container.height
     );
@@ -93,10 +99,15 @@ export function Camera({ onCapture, onClear }) {
     onClear();
   }
 
+  function setBgOverlayFront() {
+    setBgOverlay(bgFrontOverlay)
+    handleClear();
+  }
+
   if (!mediaStream) {
     return null;
   }
-
+  
   return (
     <Measure bounds onResize={handleResize}>
       {({ measureRef }) => (
@@ -111,13 +122,29 @@ export function Camera({ onCapture, onClear }) {
           >
 
             {isVideoPlaying && (
-              <button className="btnTakePicture_" style={{
+              <div>
+              <button className="btnTakePicture" style={{
                 position: 'absolute',
                 left: '0',
                 right: '0',
-                marginLeft: 'auto',
+                marginLeft: '80px',
                 marginRight: 'auto',
-                marginTop: '30%',
+                marginTop: '350px',
+                borderStyle: 'unset',
+                backgroundColor: 'transparent',
+                zIndex: '1',
+              }}>
+                <IconInstructions />
+              </button>
+              
+              <button className="btnTakePicture" style={{
+                position: 'absolute',
+                width: '200px',
+                left: '0',
+                right: '0',
+                marginLeft: '400px',
+                marginRight: 'auto',
+                marginTop: '358px',
                 borderStyle: 'unset',
                 backgroundColor: 'transparent',
                 zIndex: '1',
@@ -125,9 +152,25 @@ export function Camera({ onCapture, onClear }) {
                 onClick={isCanvasEmpty ? handleCapture : handleClear}>
                 {isCanvasEmpty ? <IconTakePicture /> : <IconRetakePicture />}
               </button>
+              </div>
             )}
 
             {isTakedPicture && (
+              <button className="btnUploadImg" style={{
+                "position": "absolute",
+                "marginTop": "358px",
+                "borderStyle": "unset",
+                "backgroundColor": "transparent",
+                "zIndex": "1",
+                "width": "200px",
+                "left": "580px"
+              }} 
+                onClick={() => setBgOverlayFront(true)}>
+                {isCanvasEmpty ? '' : <IconUploadPicture />}
+              </button>
+            )}
+
+            {/* {isTakedPicture && (
               <button className="IconUploadPicture" style={{
                 margin: '0px 15px',
                 top: '120px',
@@ -136,8 +179,8 @@ export function Camera({ onCapture, onClear }) {
                 borderStyle: 'unset',
                 backgroundColor: 'transparent',
                 zIndex: '1',
-              }} onClick={isCanvasEmpty ? handleCapture : handleClear}><IconUploadPicture /></button>
-            )}
+              }} onClick={isCanvasEmpty ? handleCapture : handleClear}><IconUploadPicture /></button>  
+            )} */}
 
             <Video
               ref={videoRef}
@@ -153,7 +196,9 @@ export function Camera({ onCapture, onClear }) {
             />
 
             <Overlay hidden={!isVideoPlaying} 
-              // style={{opacity:0.2}} 
+              style={{
+                // opacity:0.2
+                }} 
             />
 
             <Canvas
@@ -163,6 +208,8 @@ export function Camera({ onCapture, onClear }) {
               width={container.width}
               height={container.height}
               style={{
+                backgroundImage: `url("${bgOverlay}")`,
+                backgroundPositionY: '-20px',
                 // top:canvasPedding,
                 top:0,
                 opacity:0.2,
