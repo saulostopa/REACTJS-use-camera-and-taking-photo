@@ -163,7 +163,7 @@ export function Camera({ onCapture, onClear }) {
                 "backgroundColor": "transparent",
                 "zIndex": "1",
                 "width": "200px",
-                "left": "650px"
+                "left": "640px"
               }} 
                 onClick={() => setBgOverlayFront(true)}>
                 {isCanvasEmpty ? '' : <IconUploadPicture />}
