@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ButtonOpenCamera = styled.button`
-    margin: 0px 15px;
+    margin: 0px 25px;
     top: 10px;
     position: absolute;
     display: block;

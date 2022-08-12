@@ -14,7 +14,7 @@ import {
 import { IconUploadPicture } from "./../components/Icons/IconUploadPicture";
 import { IconTakePicture } from "./../components/Icons/IconTakePicture";
 import { IconRetakePicture } from "./../components/Icons/IconRetakePicture";
-import { IconInstructions } from "./../components/Icons/IconInstructions";
+// import { IconInstructionsSideRight } from "./../components/Icons/IconInstructionsSideRight";
 import bgSideOverlay from "./../assets/images/truck_left_side.png";
 import bgFrontOverlay from "./../assets/images/truck_front.png";
 
@@ -41,8 +41,12 @@ export function Camera({ onCapture, onClear }) {
   const [isFlashing, setIsFlashing] = useState(false);
   const [isTakedPicture, setIsTakedPicture] = useState(false);
   const [bgOverlay, setBgOverlay] = useState(false);
+  const [textInstructions, setTextInstructions] = useState(false);
   
   const canvasPedding = 0;
+  
+  const TextInstructionsSideRight  = "Close the passenger's door and align the truck’s right side profile according to this illustration. Please fit the truck within these lines.";
+  const TextInstructionsSideFront  = "Close the passenger's door and align the truck’s front side profile according to this illustration. Please fit the truck within these lines."
 
   const mediaStream = useUserMedia(CAPTURE_OPTIONS);
   const [aspectRatio, calculateRatio] = useCardRatio(1.586);
@@ -68,6 +72,7 @@ export function Camera({ onCapture, onClear }) {
     calculateRatio(videoRef.current.videoHeight, videoRef.current.videoWidth);
     setIsVideoPlaying(true);
     setBgOverlay(bgSideOverlay)
+    setTextInstructions(TextInstructionsSideRight)
     videoRef.current.play();
   }
 
@@ -101,6 +106,7 @@ export function Camera({ onCapture, onClear }) {
 
   function setBgOverlayFront() {
     setBgOverlay(bgFrontOverlay)
+    setTextInstructions(TextInstructionsSideFront)
     handleClear();
   }
 
@@ -134,7 +140,22 @@ export function Camera({ onCapture, onClear }) {
                 backgroundColor: 'transparent',
                 zIndex: '1',
               }}>
-                <IconInstructions />
+                <div style={{
+                  "width": "290px",
+                  "opacity": "0.7",
+                  "display": "flex",
+                  "height": "50px",
+                  "padding": "0px 10px",
+                  "flexWrap": "nowrap",
+                  "alignItems": "center",
+                  "borderRadius": "8px",
+                  "backgroundColor": "rgb(65, 80, 119)",
+                  "color": "rgb(255, 255, 255)",
+                  "fontSize": "11px",
+                  "textAlign": "left"
+                }}>
+                  {textInstructions}
+              </div>
               </button>
               
               <button className="btnTakePicture" style={{

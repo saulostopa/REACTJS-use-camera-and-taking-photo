@@ -34,7 +34,7 @@ function App() {
         <Footer>
           {/* <button onClick={scrollToElement}>Trigger the scroll</button> */}
           <button className="iconOpenCamera" style={{
-            margin: '0px 15px',
+            margin: '0px 25px',
             top: '10px',
             position: 'absolute',
             display: 'block',
@@ -43,7 +43,7 @@ function App() {
           }} onClick={() => setIsCameraOpen(true)}><IconOpenCamera /></button>
 
           <button className="iconCloseCamera" style={{
-            margin: '0px 15px',
+            margin: '0px 25px',
             top: '60px',
             position: 'absolute',
             display: 'block',

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
 import './../styles.css';
 
-export const IconInstructions = () => (
+export const IconInstructionsSideRight = () => (
     <div style={{
         "width": "290px",
         "opacity": "0.7",
