@@ -283,15 +283,6 @@ export function Camera({ onCapture, onClear }) {
                 // border: "2px solid #fff"
                 // width: 796px;
                 // height: 304px;
-
-                // left: -webkit-calc(100% - 350px);
-                // left: -moz-calc(100% - 350px);
-                // left:"calc(100% - 650px)",
-                // transform: "translateX(-250px)",
-                // transitionProperty: "right, left",
-                // animationDirection: "reverse",
-                // transition:"2s"
-                // transition: "visibility 3s, opacity 0.2s linear"
               }}
             />
 
