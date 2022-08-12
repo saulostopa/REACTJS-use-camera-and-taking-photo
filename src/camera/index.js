@@ -17,6 +17,7 @@ import { IconRetakePicture } from "./../components/Icons/IconRetakePicture";
 // import { IconInstructionsSideRight } from "./../components/Icons/IconInstructionsSideRight";
 import bgSideOverlay from "./../assets/images/truck_left_side.png";
 import bgFrontOverlay from "./../assets/images/truck_front.png";
+import logo from "./../assets/images/logo.png";
 
 const CAPTURE_OPTIONS = {
   audio: false,
@@ -181,6 +182,21 @@ export function Camera({ onCapture, onClear }) {
                   {textInstructions}
               </div>
               </button>
+
+              <div className="logo" style={{
+                position: 'absolute',
+                width: '200px',
+                left: '0',
+                right: '0',
+                marginLeft: '350px',
+                marginRight: 'auto',
+                marginTop: '10px',
+                borderStyle: 'unset',
+                backgroundColor: 'transparent',
+                zIndex: '1',
+              }}>
+                <img src={logo} alt="logo" width="50" />
+              </div>
               
               <button className="btnTakePicture" style={{
                 position: 'absolute',
@@ -256,7 +272,7 @@ export function Camera({ onCapture, onClear }) {
               height={container.height}
               style={{
                 backgroundImage: `url("${bgOverlay}")`,
-                backgroundPositionY: '-35px',
+                backgroundPositionY: '-5px',
                 // top:canvasPedding,
                 top:0,
                 opacity:0.2,

@@ -19,7 +19,7 @@ export const IconUploadPicture = (props) => (
         "WebkitBoxAlign": "center",
         "alignItems": "center",
         "borderRadius": "8px",
-        "backgroundColor": "#f85731",
+        "backgroundColor": "rgb(65, 80, 119)",
         "color": "#fff",
         "fontSize": "14px",
         "lineHeight": "24px",
