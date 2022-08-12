@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUpFromBracket } from '@fortawesome/free-solid-svg-icons';
 import './../styles.css';
 
-export const IconUploadPicture = () => (
+export const IconUploadPicture = (props) => (
     // <FontAwesomeIcon className='btnCamera' icon={faArrowUpFromBracket} />
     <div style={{
         "border": "1px solid",
@@ -25,6 +25,6 @@ export const IconUploadPicture = () => (
         "lineHeight": "24px",
         "fontWeight": "600"
       }}>
-        Upload Picture
+        {props.text}
     </div>
 )

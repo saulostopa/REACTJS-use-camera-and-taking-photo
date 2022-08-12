@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Measure from "react-measure";
 import { useUserMedia } from "../hooks/use-user-media";
 import { useCardRatio } from "../hooks/use-card-ratio";
@@ -42,11 +42,27 @@ export function Camera({ onCapture, onClear }) {
   const [isTakedPicture, setIsTakedPicture] = useState(false);
   const [bgOverlay, setBgOverlay] = useState(false);
   const [textInstructions, setTextInstructions] = useState(false);
+  const [textUpload, setTextUpload] = useState(false);
   
   const canvasPedding = 0;
   
   const TextInstructionsSideRight  = "Close the passenger's door and align the truck’s right side profile according to this illustration. Please fit the truck within these lines.";
   const TextInstructionsSideFront  = "Close the passenger's door and align the truck’s front side profile according to this illustration. Please fit the truck within these lines."
+
+  const textUploadPre = "Upload Picture";
+  const textUploadClicked = "Uploading...";
+
+  // const [count, setCount] = useState(0);
+  // const [countInTimeout, setCountInTimeout] = useState(0);
+
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setCountInTimeout(count); // count is 0 here
+  //   }, 3000);
+  //   setCount(5); // Update count to be 5 after timeout is scheduled
+  // }, []);
+
 
   const mediaStream = useUserMedia(CAPTURE_OPTIONS);
   const [aspectRatio, calculateRatio] = useCardRatio(1.586);
@@ -69,8 +85,9 @@ export function Camera({ onCapture, onClear }) {
   }
 
   function handleCanPlay() {
-    calculateRatio(videoRef.current.videoHeight, videoRef.current.videoWidth);
-    setIsVideoPlaying(true);
+    calculateRatio(videoRef.current.videoHeight, videoRef.current.videoWidth)
+    setIsVideoPlaying(true)
+    setTextUpload(textUploadPre)
     setBgOverlay(bgSideOverlay)
     setTextInstructions(TextInstructionsSideRight)
     videoRef.current.play();
@@ -78,6 +95,7 @@ export function Camera({ onCapture, onClear }) {
 
   function handleCapture() {
     const context = canvasRef.current.getContext("2d");
+    setTextUpload(textUploadPre)
 
     context.drawImage(
       videoRef.current,
@@ -105,9 +123,15 @@ export function Camera({ onCapture, onClear }) {
   }
 
   function setBgOverlayFront() {
-    setBgOverlay(bgFrontOverlay)
-    setTextInstructions(TextInstructionsSideFront)
-    handleClear();
+    setTextUpload(textUploadClicked)
+    
+    setTimeout(() => {
+      setBgOverlay(bgFrontOverlay)
+      setTextInstructions(TextInstructionsSideFront)
+      handleClear();
+    }, 3000);
+
+    
   }
 
   if (!mediaStream) {
@@ -177,6 +201,7 @@ export function Camera({ onCapture, onClear }) {
             )}
 
             {isTakedPicture && (
+              <div>
               <button className="btnUploadImg" style={{
                 "position": "absolute",
                 "marginTop": "298px",
@@ -187,8 +212,9 @@ export function Camera({ onCapture, onClear }) {
                 "left": "640px"
               }} 
                 onClick={() => setBgOverlayFront(true)}>
-                {isCanvasEmpty ? '' : <IconUploadPicture />}
+                {isCanvasEmpty ? '' : <IconUploadPicture text={textUpload} />}
               </button>
+              </div>
             )}
 
             {/* {isTakedPicture && (
@@ -241,6 +267,15 @@ export function Camera({ onCapture, onClear }) {
                 // border: "2px solid #fff"
                 // width: 796px;
                 // height: 304px;
+
+                // left: -webkit-calc(100% - 350px);
+                // left: -moz-calc(100% - 350px);
+                // left:"calc(100% - 650px)",
+                // transform: "translateX(-250px)",
+                // transitionProperty: "right, left",
+                // animationDirection: "reverse",
+                // transition:"2s"
+                // transition: "visibility 3s, opacity 0.2s linear"
               }}
             />
 
