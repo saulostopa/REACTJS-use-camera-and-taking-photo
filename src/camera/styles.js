@@ -1,4 +1,7 @@
 import styled, { keyframes, css } from "styled-components";
+// import truck from "./../assets/images/truck.png";
+// import truck_ford from "./../assets/images/truck_ford.png";
+// import truck2 from "./../assets/images/truck2.png";
 
 const flashAnimation = keyframes`
   from {
@@ -31,10 +34,20 @@ export const Canvas = styled.canvas`
   left: 0;
   bottom: 0;
   right: 0;
+  ${'' /* box-shadow: 0px 0px 20px 56px rgba(0, 0, 0, 0.1); */} */}
+  ${'' /* border: 2px solid #ffffff; */}
+  border-radius: 10px;
+
+  ${'' /* background-image: url('${truck2}'); */}
+  ${'' /* background: url("./assets/images/truck.png") no-repeat center center; */}
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
 `;
 
 export const Video = styled.video`
-  position: unset;
+  position: absolute;
+  z-index: -1;
 
   &::-webkit-media-controls-play-button {
     display: none !important;
@@ -45,12 +58,12 @@ export const Video = styled.video`
 export const Overlay = styled.div`
   position: absolute;
   top: 50px;
-  right: 50px;
-  bottom: 150px;
-  left: 50px;
-  box-shadow: 0px 0px 20px 56px rgba(0, 0, 0, 0.6);
-  border: 1px solid #ffffff;
-  border-radius: 10px;
+  right: 75px;
+  bottom: 146px;
+  left: 75px;
+  ${'' /* box-shadow: 0px 0px 20px 56px rgba(0, 0, 0, 0.1); */}
+  ${'' /* border: 2px solid #ffffff; */}
+  ${'' /* border-radius: 10px; */}
 `;
 
 export const Flash = styled.div`

@@ -32,11 +32,11 @@ export const Root = styled.main`
   overflow-y: auto;
   padding: 0px;
 
-  .btnTakePicture {
+  .btnUploadPicture {
     position: absolute;
     display: flex;
-    width: 160px;
-    margin: 60px 80px;
+    width: 170px;
+    margin: 210px 60px;
     height: 40px;
     padding: 10px;
     align-items: center;
@@ -60,12 +60,12 @@ export const Preview = styled.img`
 
 export const Footer = styled.footer`
   position: absolute;
-  top: 11px;
+  top: 10px;
   right: 0;
   bottom: 0;
   left: 0;
-  display: flex;
-  justify-content: center;
+  display: block;
+  ${'' /* justify-content: center; */}
   align-items: center;
   height: 140px;
   ${'' /* background: silver; */}
@@ -75,11 +75,16 @@ export const Footer = styled.footer`
   }
 
   .btnFooter {
-    width: 180px;
-    margin: 10px 10px;
-    display: flex;
+
+    ${'' /* width: 160px; */}
+    margin: 10px 60px;
     height: 40px;
-    padding: 0 40px;
+    padding: 10px 38px;
+    
+    ${'' /* width: 180px; */}
+    ${'' /* margin: 10px 10px; */}
+    display: flex;
+    ${'' /* padding: 0 40px; */}
     align-items: center;
     border-radius: 8px;
     background-color: #f85731;
